@@ -7,19 +7,20 @@
 }
 
 :root {
-  --color-bg: #fafafa;
-  --color-text: #111;
-  --color-muted: #888;
-  --color-border: #e0e0e0;
-  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --header-height: 64px;
-}
-
-[data-theme="dark"] {
   --color-bg: #111;
   --color-text: #eee;
   --color-muted: #888;
   --color-border: #2a2a2a;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-logo: "Playfair Display", Georgia, serif;
+  --header-height: 64px;
+}
+
+[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-text: #111;
+  --color-muted: #888;
+  --color-border: #e0e0e0;
 }
 
 html {
@@ -108,10 +109,11 @@ body.loading {
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-family: var(--font-logo);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--color-text);
 }
@@ -165,16 +167,16 @@ body.loading {
   border-color: var(--color-text);
 }
 
-.icon-sun {
+.icon-moon {
   display: none;
 }
 
-[data-theme="dark"] .icon-moon {
-  display: none;
-}
-
-[data-theme="dark"] .icon-sun {
+[data-theme="light"] .icon-moon {
   display: block;
+}
+
+[data-theme="light"] .icon-sun {
+  display: none;
 }
 
 .social a {
