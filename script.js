@@ -26,6 +26,25 @@
     localStorage.setItem('theme', next);
   });
 
+  // ── Mobile Menu ────────────────────────────
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('open');
+      nav.classList.toggle('open');
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('open');
+        nav.classList.remove('open');
+      });
+    });
+  }
+
   // ── Hero Slideshow ─────────────────────────
 
   const heroSection = document.querySelector('.hero');

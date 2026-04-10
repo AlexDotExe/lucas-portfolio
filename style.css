@@ -118,6 +118,37 @@ body.loading {
   color: var(--color-text);
 }
 
+/* hamburger — hidden on desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-text);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
 .nav {
   display: flex;
   gap: 32px;
@@ -573,18 +604,43 @@ body.loading {
 @media (max-width: 768px) {
   .header {
     padding: 0 20px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .menu-toggle {
+    display: flex;
   }
 
   .nav {
-    gap: 20px;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: var(--color-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav.open {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .nav a {
-    font-size: 12px;
+    font-size: 24px;
+    letter-spacing: 0.08em;
   }
 
   .social {
     display: none;
+  }
+
+  .header-right {
+    justify-self: end;
   }
 
   .gallery-section {
@@ -648,10 +704,6 @@ body.loading {
 
   .logo {
     font-size: 16px;
-  }
-
-  .nav {
-    gap: 14px;
   }
 
   .gallery {
