@@ -609,6 +609,7 @@ body.loading {
 
   .menu-toggle {
     display: flex;
+    z-index: 1000;
   }
 
   .nav {
